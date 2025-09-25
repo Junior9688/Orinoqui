@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificado de Existencia y Representación Legal - Fundación Comunitaria Social de la Orinoquia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header h1 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h2 {
+            font-size: 1.2em;
+            font-weight: normal;
+            position: relative;
+            z-index: 1;
+        }
+
+        .certificate-info {
+            background: #fef3c7;
+            padding: 20px;
+            border-bottom: 3px solid #f59e0b;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .info-item strong {
+            color: #1e40af;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .verification-section {
+            background: #fef3c7;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px solid #f59e0b;
+        }
+
+        .verification-code {
+            background: #1e40af;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.2em;
+            text-align: center;
+            margin: 10px 0;
+            letter-spacing: 2px;
+        }
+
+        .verify-button {
+            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            margin: 10px 5px;
+        }
+
+        .verify-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.4);
+        }
+
+        .section {
+            padding: 25px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section h3 {
+            color: #1e40af;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3b82f6;
+            position: relative;
+        }
+
+        .section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: #f59e0b;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .data-table th {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .data-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .data-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .data-table tr:hover {
+            background: #fef3c7;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .patrimonio {
+            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .objectives {
+            background: #fef3c7;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #3b82f6;
+        }
+
+        .objectives ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .objectives li {
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            border-left: 3px solid #3b82f6;
+            position: relative;
+        }
+
+        .objectives li::before {
+            content: '✓';
+            color: #f59e0b;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .footer {
+            background: #1e40af;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 5px 0;
+            opacity: 0.9;
+        }
+
+        .logo-section {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #1e40af 0%, #f59e0b 100%);
+            color: white;
+        }
+
+        .logo-placeholder {
+            width: 150px;
+            height: 150px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            border: 3px solid rgba(255,255,255,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 10px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.4em;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 15px;
+            }
+            
+            .data-table {
+                font-size: 0.9em;
+            }
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .status-active {
+            background: #dbeafe;
+            color: #1e40af;
+            border: 1px solid #93c5fd;
+        }
+
+        .status-micro {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fbbf24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo Section -->
+        <div class="logo-section">
+            <div class="logo-placeholder">🏛️</div>
+            <h1>FUNDACIÓN COMUNITARIA SOCIAL DE LA ORINOQUIA</h1>
+            <p>Certificado de Existencia y Representación Legal</p>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <h1>CÁMARA DE COMERCIO DE VILLAVICENCIO</h1>
+            <h2>CERTIFICADO DE EXISTENCIA Y REPRESENTACIÓN LEGAL</h2>
+        </div>
+
+        <!-- Certificate Information -->
+        <div class="certificate-info">
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>Fecha de Expedición:</strong>
+                    04/06/2025 - 11:06:48
+                </div>
+                <div class="info-item">
+                    <strong>Recibo No.:</strong>
+                    S002191660
+                </div>
+                <div class="info-item">
+                    <strong>Valor:</strong>
+                    $11,600
+                </div>
+                <div class="info-item">
+                    <strong>Estado:</strong>
+                    <span class="status-badge status-active">ACTIVO</span>
+                </div>
+            </div>
+
+            <!-- Verification Section -->
+            <div class="verification-section">
+                <h3>🔐 Verificación del Certificado</h3>
+                <p><strong>Código de Verificación:</strong></p>
+                <div class="verification-code">MP68nQ9jz1</div>
+                <p>Verifique el contenido y confiabilidad de este certificado ingresando al enlace oficial y digitando el código de verificación.</p>
+                <button class="verify-button" onclick="verifyCertificate()">Verificar Certificado</button>
+                <button class="verify-button" onclick="copyVerificationCode()">Copiar Código</button>
+                <p><small>La verificación se puede realizar de manera ilimitada durante 60 días calendario contados a partir de la fecha de expedición.</small></p>
+            </div>
+        </div>
+
+        <!-- Entity Information -->
+        <div class="section">
+            <h3>📋 NOMBRE, IDENTIFICACIÓN Y DOMICILIO</h3>
+            <table class="data-table">
+                <tr>
+                    <th>Campo</th>
+                    <th>Información</th>
+                </tr>
+                <tr>
+                    <td><strong>Razón Social</strong></td>
+                    <td>FUNDACION COMUNITARIA SOCIAL DE LA ORINOQUIA</td>
+                </tr>
+                <tr>
+                    <td><strong>NIT</strong></td>
+                    <td>901946419-0</td>
+                </tr>
+                <tr>
+                    <td><strong>Domicilio</strong></td>
+                    <td>Puerto Carreño, Vichada</td>
+                </tr>
+                <tr>
+                    <td><strong>Inscripción No.</strong></td>
+                    <td>S0510780</td>
+                </tr>
+                <tr>
+                    <td><strong>Fecha de Inscripción</strong></td>
+                    <td>15 de mayo de 2025</td>
+                </tr>
+                <tr>
+                    <td><strong>Grupo NIIF</strong></td>
+                    <td><span class="highlight">GRUPO III - MICROEMPRESAS</span></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Location Information -->
+        <div class="section">
+            <h3>📍 UBICACIÓN Y CONTACTO</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>Dirección Principal:</strong>
+                    CRA 10 # 10-36 - Tamarindo
+                </div>
+                <div class="info-item">
+                    <strong>Municipio:</strong>
+                    Puerto Carreño, Vichada
+                </div>
+                <div class="info-item">
+                    <strong>Correo Electrónico:</strong>
+                    edgarjimenezbem16@gmail.com
+                </div>
+                <div class="info-item">
+                    <strong>Teléfono Comercial:</strong>
+                    3213441575
+                </div>
+                <div class="info-item">
+                    <strong>Dirección Notificación Judicial:</strong>
+                    CRA 10 # 10-36 - Tamarindo
+                </div>
+                <div class="info-item">
+                    <strong>Correo Notificación:</strong>
+                    edgarjimenezbem16@gmail.com
+                </div>
+            </div>
+            <p><strong>Notificaciones Electrónicas:</strong> <span class="status-badge status-active">AUTORIZADO</span></p>
+        </div>
+
+        <!-- Constitution -->
+        <div class="section">
+            <h3>📜 CONSTITUCIÓN</h3>
+            <p>Por Acta del 30 de octubre de 2024 de la Asamblea Constitutiva de Puerto Carreño, inscrito en esta Cámara de Comercio el 15 de mayo de 2025, con el No. 50776 del Libro I del Registro de Entidades sin Ánimo de Lucro, se constituyó la entidad sin ánimo de lucro de naturaleza Fundación denominada <strong>FUNDACION COMUNITARIA SOCIAL DE LA ORINOQUIA</strong>.</p>
+            
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>Entidad de Control:</strong>
+                    GOBERNACIÓN DEL VICHADA
+                </div>
+                <div class="info-item">
+                    <strong>Duración:</strong>
+                    <span class="status-badge status-active">INDEFINIDA</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Purpose -->
+        <div class="section">
+            <h3>🎯 OBJETO SOCIAL</h3>
+            <div class="objectives">
+                <p><strong>OBJETO PRINCIPAL:</strong> Lograr el fomento, defensa y promoción a favor de los intereses comunes de las personas menos favorecidas en el campo de la salud, educación, cultura, recreación y conservación del medio ambiente.</p>
+                
+                <h4>ACTIVIDADES DE DESARROLLO SOCIAL:</h4>
+                <ul>
+                    <li>Propiciar un desarrollo social integral e incluyente en las comunidades</li>
+                    <li>Proyectos enfocados al mejoramiento y cobertura del servicio público de comunicaciones</li>
+                    <li>Proyectos educativos basados en la promoción y prevención de la enfermedad</li>
+                    <li>Administración de programas y proyectos del ICBF Regional Vichada</li>
+                    <li>Crear sistemas de unificación de información para población vulnerable</li>
+                    <li>Diseñar proyectos y políticas de inclusión social</li>
+                    <li>Realizar trabajo social comunitario</li>
+                    <li>Capacitación a personal de vigilancia y seguridad privada</li>
+                    <li>Gestionar proyectos de conservación y protección de recursos naturales</li>
+                    <li>Realizar alianzas estratégicas con otras organizaciones</li>
+                    <li>Crear red de apoyo y protección para mujeres</li>
+                    <li>Control y vigilancia de derechos de las mujeres</li>
+                    <li>Capacitaciones para empoderamiento de la mujer</li>
+                    <li>Organizar mujeres mediante asociaciones</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Patrimony -->
+        <div class="section">
+            <h3>💰 PATRIMONIO</h3>
+            <div class="patrimonio">$ 1.000.000,00</div>
+            <p>El patrimonio de la Fundación está constituido por aportes realizados por los fundadores, por los auxilios donados por personas naturales o jurídicas o por los bienes que a cualquier título adquiera, incluyendo ayudas de empresas extranjeras, o de cualquier entidad privada.</p>
+        </div>
+
+        <!-- Legal Representatives -->
+        <div class="section">
+            <h3>👥 REPRESENTANTES LEGALES</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Cargo</th>
+                        <th>Nombre</th>
+                        <th>Identificación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>PRESIDENTE</strong></td>
+                        <td>EDGAR MANUEL JIMENEZ BURGOS</td>
+                        <td>C.C. No. 18.260.522</td>
+                    </tr>
+                    <tr>
+                        <td><strong>VICEPRESIDENTE</strong></td>
+                        <td>LILIAN ISABEL CARVAJAL CABALLERO</td>
+                        <td>C.C. No. 30.937.693</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Board of Directors -->
+        <div class="section">
+            <h3>🏛️ ÓRGANO DE ADMINISTRACIÓN</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Cargo</th>
+                        <th>Nombre</th>
+                        <th>Identificación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MIEMBRO DE JUNTA DIRECTIVA</td>
+                        <td>EDGAR MANUEL JIMENEZ BURGOS</td>
+                        <td>C.C. No. 18.260.522</td>
+                    </tr>
+                    <tr>
+                        <td>MIEMBRO DE JUNTA DIRECTIVA</td>
+                        <td>LILIAN ISABEL CARVAJAL CABALLERO</td>
+                        <td>C.C. No. 30.937.693</td>
+                    </tr>
+                    <tr>
+                        <td>MIEMBRO DE JUNTA DIRECTIVA</td>
+                        <td>ANA IDALY OSORIO SIERRA</td>
+                        <td>C.C. No. 1.127.385.432</td>
+                    </tr>
+                    <tr>
+                        <td>MIEMBRO DE JUNTA DIRECTIVA</td>
+                        <td>BERTA ARGELIA GONZALES DE AGUILAR</td>
+                        <td>PPT. No. 6.809.156</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Fiscal Reviewer -->
+        <div class="section">
+            <h3>🔍 REVISORES FISCALES</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Cargo</th>
+                        <th>Nombre</th>
+                        <th>Identificación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>REVISOR FISCAL</strong></td>
+                        <td>DERLY CARMINA VELANDIA RINCON</td>
+                        <td>C.C. No. 47.432.771</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Economic Activities -->
+        <div class="section">
+            <h3>📊 CLASIFICACIÓN DE ACTIVIDADES ECONÓMICAS - CIIU</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>Actividad Principal:</strong>
+                    Código CIIU: S9499
+                </div>
+                <div class="info-item">
+                    <strong>Actividad Secundaria:</strong>
+                    No reportó
+                </div>
+                <div class="info-item">
+                    <strong>Otras Actividades:</strong>
+                    No reportó
+                </div>
+            </div>
+        </div>
+
+        <!-- Company Size -->
+        <div class="section">
+            <h3>📈 INFORMACIÓN - TAMAÑO DE EMPRESA</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>Tamaño de Empresa:</strong>
+                    <span class="status-badge status-micro">MICRO EMPRESA</span>
+                </div>
+                <div class="info-item">
+                    <strong>Ingresos por Actividad Ordinaria:</strong>
+                    $0,00
+                </div>
+                <div class="info-item">
+                    <strong>Actividad Económica Principal:</strong>
+                    CIIU: S9499
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>IMPORTANTE:</strong> La firma digital del secretario de la CÁMARA DE COMERCIO DE VILLAVICENCIO contenida en este certificado electrónico se encuentra emitida por una entidad de certificación acreditada por el Organismo Nacional de Acreditación de Colombia (ONAC).</p>
+            <p>Este certificado refleja la situación jurídica registral de la entidad, a la fecha y hora de su expedición.</p>
+            <p><strong>Verificación:</strong> <a href="https://sii.confecamaras.co/vista/plantilla/cv.php?empresa=40" style="color: #fbbf24;">https://sii.confecamaras.co/vista/plantilla/cv.php?empresa=40</a></p>
+        </div>
+    </div>
+
+    <script>
+        function verifyCertificate() {
+            const verificationUrl = 'https://sii.confecamaras.co/vista/plantilla/cv.php?empresa=40';
+            window.open(verificationUrl, '_blank');
+        }
+
+        function copyVerificationCode() {
+            const code = 'MP68nQ9jz1';
+            navigator.clipboard.writeText(code).then(function() {
+                alert('Código de verificación copiado: ' + code);
+            }, function(err) {
+                console.error('Error al copiar: ', err);
+                // Fallback para navegadores que no soportan clipboard API
+                const textArea = document.createElement('textarea');
+                textArea.value = code;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('Código de verificación copiado: ' + code);
+            });
+        }
+
+        // Animación de entrada
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach((section, index) => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'all 0.6s ease';
+                
+                setTimeout(() => {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+
+        // Efecto de hover en las tablas
+        document.querySelectorAll('.data-table tr').forEach(row => {
+            row.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.02)';
+                this.style.transition = 'transform 0.2s ease';
+            });
+            
+            row.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
